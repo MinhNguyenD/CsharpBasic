@@ -1,0 +1,15 @@
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\bin\Debug\net6.0\csharpbasic.exe
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\bin\Debug\net6.0\csharpbasic.deps.json
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\bin\Debug\net6.0\csharpbasic.runtimeconfig.json
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\bin\Debug\net6.0\csharpbasic.dll
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\bin\Debug\net6.0\csharpbasic.pdb
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.csproj.AssemblyReference.cache
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.GeneratedMSBuildEditorConfig.editorconfig
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.AssemblyInfoInputs.cache
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.AssemblyInfo.cs
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.csproj.CoreCompileInputs.cache
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.dll
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\refint\csharpbasic.dll
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.pdb
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\csharpbasic.genruntimeconfig.cache
+H:\Self-study\code\csharp\CsharpBasic\csharpbasic\obj\Debug\net6.0\ref\csharpbasic.dll
