@@ -13,23 +13,25 @@ namespace csharpbasic
             this.board = new Board();
             board.Display();
             Console.WriteLine("Let's play");
-            bool xWin = false;
-            bool oWin = false;
-            bool draw = false; 
             while(true)
             {
                 Console.WriteLine("X turn");
                 char pos = Convert.ToChar(Console.ReadLine());
-                moveX(pos);
+                if(!moveX(pos)) continue;
                 board.Display();
                 if (check())
                 {
                     break;
                 }
-
+                
                 Console.WriteLine("O turn");
                 pos = Convert.ToChar(Console.ReadLine());
-                moveO(pos);
+                while (!moveO(pos))
+                {
+                    board.Display();
+                    Console.WriteLine("O turn");
+                    pos = Convert.ToChar(Console.ReadLine());
+                }
                 board.Display();
                 if (check())
                 {
@@ -39,14 +41,14 @@ namespace csharpbasic
         }
 
 
-        public void moveX(char position)
+        public bool moveX(char position)
         {
-            board.move(position, 'X');
+           return board.move(position, 'X');
         }
 
-        public void moveO(char position)
+        public bool moveO(char position)
         {
-            board.move(position, 'O');
+            return board.move(position, 'O');
         }
         
         public bool check()
@@ -92,13 +94,13 @@ namespace csharpbasic
             }
         }
 
-        public void move(char position, char player)
+        public bool move(char position, char player)
         {
             bool movable = false;
             if(Char.GetNumericValue(position) > 9)
             {
                 Console.WriteLine("Out of bound for board");
-                return;
+                return false;
             }
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -107,45 +109,37 @@ namespace csharpbasic
                     if((matrix[i, j] != 'X' || matrix[i, j] != 'O') && matrix[i,j] == position)
                     {
                         matrix[i, j] = player;
-                        movable = true;
+                        return true;
                     }
                 }
             }
-            if (!movable)
-            {
-                Console.WriteLine("Already marked");
-            }
+            Console.WriteLine("Already marked");
+            return false;
         }
 
         public bool checkX()
         {
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    if (i+2 <= 2 && j+2 <= 2 && (matrix[i, j] == 'X' && matrix[i+1, j+1] == 'X' && matrix[i+2, j+2] == 'X')) return true;
-                    else if(j + 2 <= 2 && (matrix[i, j] == 'X' && matrix[i, j + 1] == 'X' && matrix[i, j + 2] == 'X')) return true;
-                    else if (i + 2 <= 2 && (matrix[i, j] == 'X' && matrix[i+1, j] == 'X' && matrix[i+2, j] == 'X')) return true;
-                }
-            }
-            return false;
+            return checkSymbol('X');
         }
 
         public bool checkO()
+        {
+            return checkSymbol('O');
+        }
+
+        public bool checkSymbol(char c)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (i + 2 <= 2 && j + 2 <= 2 && (matrix[i, j] == 'O' && matrix[i + 1, j + 1] == 'O' && matrix[i + 2, j + 2] == 'O')) return true;
-                    else if (j + 2 <= 2 && (matrix[i, j] == 'O' && matrix[i, j + 1] == 'O' && matrix[i, j + 2] == 'O')) return true;
-                    else if (i + 2 <= 2 && (matrix[i, j] == 'O' && matrix[i + 1, j] == 'O' && matrix[i + 2, j] == 'O')) return true;
+                    if (i + 2 <= 2 && j + 2 <= 2 && (matrix[i, j] == c && matrix[i + 1, j + 1] == c && matrix[i + 2, j + 2] == c)) return true;
+                    else if (j + 2 <= 2 && (matrix[i, j] == c && matrix[i, j + 1] == c && matrix[i, j + 2] == c)) return true;
+                    else if (i + 2 <= 2 && (matrix[i, j] == c && matrix[i + 1, j] == c && matrix[i + 2, j] == c)) return true;
                 }
             }
             return false;
-
         }
-
         public bool checkDraw()
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
