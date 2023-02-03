@@ -126,7 +126,7 @@ namespace csharpbasic
             //aka map
         }
         public void linkedlist() { }
-
-
+        public void hashset() { }
+        public void sortset() { }
     }
 }
