@@ -39,6 +39,8 @@ namespace csharpbasic
 
         }
 
+    
+        
         public static void array()
         {
             //can store cetain data type, elemeent must be the same type (special case object type)
@@ -86,6 +88,19 @@ namespace csharpbasic
             int[][] jag = new int[3][];
         }
 
+        /*
+        /// Collections classes library:
+        /// System.Collections.Generic classes: A generic collection is useful when every item in the collection has the same data type. A generic collection enforces strong typing by allowing only the desired data type to be added.
+        /// System.Collections.Concurrent classes: provide efficient thread-safe operations for accessing collection items from multiple threads.
+        /// System.Collections classes: do not store elements as specifically typed objects, but as objects of type Object
+        /// 
+        /// https://learn.microsoft.com/en-us/dotnet/standard/collections/
+        /// https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections#BKMK_Generic
+        */
+
+        /// <summary>
+        /// non-generic collection can store any object (generic version of this is List<T>
+        /// </summary>
         public static void arrayList()
         {
             //can store any type + element can be different data type
@@ -119,14 +134,35 @@ namespace csharpbasic
             bool isTrue = arr.Contains(1);
         }
 
-        public void stack() { }
+        /// <summary>
+        /// can be generic or non-generic
+        /// </summary>
+        public void stack() { 
+            
+        }
+
+        /// <summary>
+        /// can be generic or non-generic
+        /// </summary>
         public void queue() { }
+
+        /// <summary>
+        /// generic
+        /// </summary>
         public void dictionary()
         {
             //aka map
         }
+
+        /// <summary>
+        /// generic
+        /// </summary>
         public void linkedlist() { }
-        public void hashset() { }
+
+        /// <summary>
+        /// generic
+        /// </summary>
+        public void hashtables() { }
         public void sortset() { }
     }
 }
