@@ -227,11 +227,55 @@ namespace csharpbasic
         }
 
         /// <summary>
+        /// aka map
         /// generic
         /// </summary>
         public void dictionary()
         {
-            //aka map
+            Dictionary<Int32, string> map = new Dictionary<Int32, string>();
+            map.Add(0, "obj1");
+            map.Add(1, "obj2");
+            map.Add(2, "obj3");
+            //can use tryadd (return bool) for more safe 
+
+            if (map.Count == 3)
+            {
+                Console.WriteLine("true");
+            }
+
+            //access by key will throw excp if not exist 
+            string obj1 = map[0];
+
+            // get the keys 
+            Dictionary<Int32, string>.KeyCollection keyCollection = map.Keys;
+
+            // enumurate through map and access key + value 
+            foreach (KeyValuePair<Int32, string> kvp in map)
+            {
+                Console.WriteLine(kvp.Key);
+                Console.WriteLine(kvp.Value);
+            }
+            // get the values 
+            Dictionary<Int32, string>.ValueCollection valueCollectiion = map.Values;
+
+            if (map.ContainsKey(0))
+            {
+                Console.WriteLine("true");
+            }
+            if (map.ContainsValue("obj1"))
+            {
+                Console.WriteLine("true");
+            }
+            map.Remove(0);
+            if (map.ContainsValue("obj1"))
+            {
+                Console.WriteLine("false because removed");
+            }
+            if(map.Count == 2)
+            {
+                Console.WriteLine("true bc removed");
+            }
+
         }
 
         /// <summary>
@@ -243,6 +287,10 @@ namespace csharpbasic
         /// generic
         /// </summary>
         public void hashtables() { }
+
+        /// <summary>
+        /// generic
+        /// </summary>
         public void sortset() { }
     }
 }
