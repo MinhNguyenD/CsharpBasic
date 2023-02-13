@@ -94,6 +94,8 @@ namespace csharpbasic
         /// System.Collections.Concurrent classes: provide efficient thread-safe operations for accessing collection items from multiple threads.
         /// System.Collections classes: do not store elements as specifically typed objects, but as objects of type Object
         /// 
+        /// Non-Generic return object 
+        /// Generic return generic type 
         /// https://learn.microsoft.com/en-us/dotnet/standard/collections/
         /// https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections#BKMK_Generic
         */
@@ -106,45 +108,123 @@ namespace csharpbasic
             //can store any type + element can be different data type
 
             // must use System.Collection to use arraylist
-            ArrayList arr = new ArrayList();
+            ArrayList arrListNonGeneric = new ArrayList();
+            List<Int32> arrListGeneric = new List<Int32>();
 
             //explore method 
 
-
             //add
-            arr.Add(1);
-            arr.Add(2);
-            arr.Add(3);
-            //index of element
-            arr.IndexOf(3);
+            arrListNonGeneric.Add(1);
+            arrListNonGeneric.Add("string");
+            arrListNonGeneric.Add(true);
+            arrListGeneric.Add(1);
+            arrListGeneric.Add(2);
+            arrListGeneric.Add(3);
+
+            // acess element 
+            object num = arrListNonGeneric[0];
+            int num1 = arrListGeneric[0];
+            // index of element
+            arrListNonGeneric.IndexOf(3);
 
             //insert object at index
-            arr.Insert(0, 5);
+            arrListNonGeneric.Insert(0, 5);
 
             //remove 'inserted' element
-            arr.Remove(2);
+            arrListNonGeneric.Remove(2);
 
             //remove at index
-            arr.RemoveAt(0);
+            arrListNonGeneric.RemoveAt(0);
 
             //num of element
-            int num = arr.Count;
+            int num2 = arrListNonGeneric.Count;
 
             //contain
-            bool isTrue = arr.Contains(1);
+            bool isTrue = arrListNonGeneric.Contains(1);
         }
 
         /// <summary>
         /// can be generic or non-generic
+        /// cant dirrectly access an element 
+        /// only has access to top of the stack 
         /// </summary>
         public void stack() { 
-            
+            Stack<Int32> stackGeneric = new Stack<Int32>();
+            Stack stackNonGeneric = new Stack();
+            stackGeneric.Push(1);
+            stackGeneric.Push(2);
+            stackGeneric.Push(3);
+            stackNonGeneric.Push(1);
+            stackNonGeneric.Push("string");
+            stackNonGeneric.Push(true);
+            if (stackGeneric.Count == 3)
+            {
+                Console.WriteLine("true");
+            }
+            if (stackGeneric.Peek() == 3)
+            {
+                Console.WriteLine("true"); 
+            } 
+            if((bool)stackNonGeneric.Pop())
+            {
+                Console.WriteLine("true"); 
+            }
+
+            if (stackNonGeneric.Contains(1))
+            {
+                Console.WriteLine("true");
+            }
+
+            if (stackGeneric.Contains(1))
+            {
+                Console.WriteLine("true");
+            }
+            stackGeneric.Clear(); 
+            if (stackGeneric.Count == 0)
+            {
+                Console.WriteLine("true");
+            }
+
         }
 
         /// <summary>
         /// can be generic or non-generic
+        /// cant dirrectly access an element 
+        /// only has access to first of the queue
         /// </summary>
-        public void queue() { }
+        public void queue() {
+            Queue queueNonGeneric = new Queue();
+            Queue<Int32> queueGeneric = new Queue<Int32>();
+
+            queueNonGeneric.Enqueue(1);
+            queueNonGeneric.Enqueue("string");
+            queueNonGeneric.Enqueue(true);
+            queueGeneric.Enqueue(1);
+            queueGeneric.Enqueue(2);
+            queueGeneric.Enqueue(3);
+            if (queueNonGeneric.Count == 3)
+            {
+                Console.WriteLine("true");
+            }
+            if (queueNonGeneric.Contains(1))
+            {
+                Console.WriteLine("true");
+            }
+            if (queueNonGeneric.Dequeue() == (object)1)
+            {
+                Console.WriteLine("true");
+            }
+            if (queueNonGeneric.Dequeue() == (object)"string")
+            {
+                Console.WriteLine("true");
+            }
+            queueGeneric.Clear(); 
+            if(queueGeneric.Count == 0)
+            {
+                Console.WriteLine("true");
+            }
+
+        }
 
         /// <summary>
         /// generic
